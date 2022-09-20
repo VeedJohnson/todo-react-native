@@ -15,7 +15,7 @@ export default function App() {
         <AppStack.Navigator initialRouteName='AllTodos'>
           <AppStack.Screen name='AllTodos' component={TodoListScreen}
           options={{
-            title: "All Tasks"
+            title: "Things to do"
           }}
           />
           <AppStack.Screen name='AddTodo' component={NewTodoScreen}

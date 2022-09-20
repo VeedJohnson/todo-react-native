@@ -35,9 +35,13 @@ const TodosProvider = ({children}) => {
     };
 
     const updateTodo = async (id, name) => {
-        const selectedTodo = todos.find(todo => todo.id === id);
-        selectedTodo.name = name;
-        await AsyncStorage.setItem('MY_TODOS', JSON.stringify(todos));
+        const selectedTodoIndex = todos.findIndex(todo => todo.id === id);
+        const selectedTodo = todos[selectedTodoIndex];
+        const updatedTodo = { ...selectedTodo, name: name};
+        const updatedTodoList = [...todos];
+        updatedTodoList[selectedTodoIndex] = updatedTodo;
+        setTodos(updatedTodoList);
+        await AsyncStorage.setItem('MY_TODOS', JSON.stringify(updatedTodoList));
     };
 
     const deleteTodo =  async (id) => {

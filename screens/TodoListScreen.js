@@ -11,7 +11,7 @@ const TodoListScreen = () => {
 
     useEffect(() => {
         todoContext.fetchTodos();
-    }, [todoList]);
+    }, []);
 
     if (todoList.length <= 0) {
         return (
