@@ -10,7 +10,7 @@ const TodosProvider = ({children}) => {
         const todosRaw = await AsyncStorage.getItem('MY_TODOS');
         if (todosRaw) {
             setTodos(JSON.parse(todosRaw));
-        } else return;
+        }
     };
 
     const addTodo = async (name, isCompleted=false) => {

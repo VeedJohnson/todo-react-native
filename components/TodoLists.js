@@ -34,7 +34,10 @@ const TodoLists = ({data}) => {
                     text: "Cancel",
                 }
 
-            ]
+            ],
+            {
+                cancelable: true,
+            }
         )
     }
 
