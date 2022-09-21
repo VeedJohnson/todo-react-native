@@ -20,17 +20,20 @@ const TodosProvider = ({children}) => {
             isCompleted: isCompleted,
             id: id
         };
+
         setTodos(currTodos => [todoDetail, ...currTodos]);
+        
+        // const todosRaw = await AsyncStorage.getItem('MY_TODOS');
+        
+        // let todoStore;
+        // if(todosRaw) {
+        //     const todosParsed = JSON.parse(todosRaw);
+        //     todoStore = JSON.stringify([todoDetail, ...todosParsed]);
+        // } else {
+            //     todoStore = JSON.stringify([todoDetail]);
+            // }
 
-        const todosRaw = await AsyncStorage.getItem('MY_TODOS');
-
-        let todoStore;
-        if(todosRaw) {
-            const todosParsed = JSON.parse(todosRaw);
-            todoStore = JSON.stringify([todoDetail, ...todosParsed]);
-        } else {
-            todoStore = JSON.stringify([todoDetail]);
-        }
+        const todoStore = JSON.stringify(todos);
         await AsyncStorage.setItem('MY_TODOS', todoStore);
     };
 
